@@ -16,6 +16,10 @@ class Codefly < Formula
     if Hardware::CPU.intel?
       url  "https://github.com/codefly-dev/cli-releases/releases/download/v0.0.1/codefly-darwin-amd64"
     end
+
+    def install
+      bin.install "codefly"
+    end
   end
 
   def caveats
