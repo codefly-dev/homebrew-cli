@@ -10,7 +10,7 @@ class Codefly < Formula
 
   on_macos do
     if Hardware::CPU.arm?
-      url "https://github.com/codefly-dev/cli-releases/releases/download/v0.0.1/codefly_v0.0.1_darwin_amd"
+      url "https://github.com/codefly-dev/cli-releases/releases/download/v0.0.1/codefly-darwin-amd"
       sha256 "7ee3d795286bc1692e1634a44e8600388fb545617c04024fd6fd9ffe37d783dd"
 
       def install
@@ -18,7 +18,7 @@ class Codefly < Formula
       end
     end
     if Hardware::CPU.intel?
-      url  "https://github.com/codefly-dev/cli-releases/releases/download/v0.0.1/codefly_v0.0.1_darwin_arn"
+      url  "https://github.com/codefly-dev/cli-releases/releases/download/v0.0.1/codefly-darwin-amd"
       sha256 "9e9056fe64ff2f7423a3b7d3a68b330bbe29cd7eac2e3b58a390c2d3ed8b8de7"
 
       def install
