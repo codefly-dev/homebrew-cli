@@ -18,7 +18,8 @@ class Codefly < Formula
     end
 
     def install
-      bin.install "codefly-darwin-#{Hardware::CPU.arch}" => "codefly"
+      binary_name = Hardware::CPU.intel? ? "codefly-darwin-amd64" : "codefly-darwin-arm64"
+      bin.install binary_name => "codefly"
     end
   end
 
