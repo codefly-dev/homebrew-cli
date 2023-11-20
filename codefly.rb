@@ -7,10 +7,13 @@ class Codefly < Formula
   homepage "https://codefly.ai"
   version "0.0.1"
   depends_on :macos
-
+  depends_on "buf"
+  depends_on "protobuf"
+  
   on_macos do
     if Hardware::CPU.arm?
       url "https://github.com/codefly-dev/cli-releases/releases/download/v0.0.1/codefly-darwin-amd64"
+      sha256 "e1be9d7e6fff12c50aecb4f96249b3406c8aabe903c1f393807bff7661b46fd2"
     end
     if Hardware::CPU.intel?
       url  "https://github.com/codefly-dev/cli-releases/releases/download/v0.0.1/codefly-darwin-amd64"
