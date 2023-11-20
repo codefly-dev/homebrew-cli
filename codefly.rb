@@ -18,13 +18,13 @@ class Codefly < Formula
     end
 
     def install
-      bin.install "codefly"
+      bin.install "codefly-darwin-#{Hardware::CPU.arch}" => "codefly"
     end
   end
 
   def caveats
     <<~EOS
-      How to use your tool after installation
+      Run "codefly init" to get started!
     EOS
   end
 
