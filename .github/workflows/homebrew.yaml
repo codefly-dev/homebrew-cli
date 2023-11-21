@@ -1,0 +1,24 @@
+name: Homebrew Formula Test
+
+on: [push, pull_request]
+
+jobs:
+  test:
+    runs-on: macOS-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Set up Homebrew
+        run: |
+          brew update
+          brew tap homebrew/core
+
+      - name: Test Formula
+        run: |
+          brew install --build-from-source --verbose ./codefly.rb
+
+      - name: Test Binary
+        run: |
+          codefly version
