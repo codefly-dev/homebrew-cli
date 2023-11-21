@@ -24,15 +24,26 @@ class Codefly < Formula
       binary_name = Hardware::CPU.intel? ? "codefly-darwin-amd64" : "codefly-darwin-arm64"
       bin.install binary_name => "codefly"
     end
-  end
 
-  def caveats
-    <<~EOS
-      Run "codefly init" to get started!
+    def post_install
+      # Generate and install completion scripts
+      system "#{bin}/codefly completion bash > #{bash_completion}/codefly" if build.with? "completion"
+      system "#{bin}/codefly completion zsh > #{zsh_completion}/_codefly" if build.with? "completion"
+      system "#{bin}/codefly completion fish > #{fish_completion}/codefly.fish" if build.with? "completion"
+    end
+
+    def caveats
+      <<~EOS
+      To activate bash completions, add the following line to your ~/.bash_profile:
+        [ -f #{HOMEBREW_PREFIX}/etc/bash_completion.d/codefly ] && . #{HOMEBREW_PREFIX}/etc/bash_completion.d/codefly
+
+      For zsh, add this to your ~/.zshrc:
+        fpath=(#{HOMEBREW_PREFIX}/share/zsh/site-functions $fpath)
+        autoload -Uz compinit && compinit
+
+      For fish, add this to your ~/.config/fish/config.fish:
+        set -gx fish_complete_path #{HOMEBREW_PREFIX}/share/fish/vendor_completions.d $fish_complete_path
     EOS
-  end
-
-  test do
-    codefly version
+    end
   end
 end
