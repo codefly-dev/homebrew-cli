@@ -5,17 +5,17 @@
 class Codefly < Formula
   desc "codefly CLI"
   homepage "https://codefly.ai"
-  version "0.0.2"
+  version "0.0.3"
   depends_on :macos
   depends_on "buf"
   depends_on "protobuf"
-  
+
   on_macos do
     if Hardware::CPU.arm?
-      url "https://github.com/codefly-dev/cli-releases/releases/download/v0.0.2/codefly-darwin-arm64"
+      url "https://github.com/codefly-dev/cli-releases/releases/download/v0.0.3/codefly-darwin-arm64"
     end
     if Hardware::CPU.intel?
-      url  "https://github.com/codefly-dev/cli-releases/releases/download/v0.0.2/codefly-darwin-amd64"
+      url  "https://github.com/codefly-dev/cli-releases/releases/download/v0.0.3/codefly-darwin-amd64"
     end
 
     def install
@@ -32,15 +32,6 @@ class Codefly < Formula
 
     def caveats
       <<~EOS
-      To activate bash completions, add the following line to your ~/.bash_profile:
-        [ -f #{HOMEBREW_PREFIX}/etc/bash_completion.d/codefly ] && . #{HOMEBREW_PREFIX}/etc/bash_completion.d/codefly
-
-      For zsh, add this to your ~/.zshrc:
-        fpath=(#{HOMEBREW_PREFIX}/share/zsh/site-functions $fpath)
-        autoload -Uz compinit && compinit
-
-      For fish, add this to your ~/.config/fish/config.fish:
-        set -gx fish_complete_path #{HOMEBREW_PREFIX}/share/fish/vendor_completions.d $fish_complete_path
     EOS
     end
   end
