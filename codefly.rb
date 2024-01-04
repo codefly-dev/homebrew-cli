@@ -5,17 +5,17 @@
 class Codefly < Formula
   desc "codefly CLI"
   homepage "https://codefly.ai"
-  version "0.0.53"
+  version "0.0.54"
   depends_on :macos
   depends_on "buf"
   depends_on "protobuf"
 
   on_macos do
     if Hardware::CPU.arm?
-      url "https://github.com/codefly-dev/cli-releases/releases/download/v0.0.53/codefly-darwin-arm64"
+      url "https://github.com/codefly-dev/cli-releases/releases/download/v0.0.54/codefly-darwin-arm64"
     end
     if Hardware::CPU.intel?
-      url  "https://github.com/codefly-dev/cli-releases/releases/download/v0.0.53/codefly-darwin-amd64"
+      url  "https://github.com/codefly-dev/cli-releases/releases/download/v0.0.54/codefly-darwin-amd64"
     end
 
     def install
