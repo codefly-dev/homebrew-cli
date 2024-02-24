@@ -7,8 +7,6 @@ class Codefly < Formula
   homepage "https://codefly.ai"
   version "0.0.64"
   depends_on :macos
-  depends_on "buf"
-  depends_on "protobuf"
 
   on_macos do
     if Hardware::CPU.arm?
