@@ -8,16 +8,16 @@ jobs:
 
     steps:
       - name: Checkout Repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
 
-      - name: Set up Homebrew
+      - name: Create Test Tap
         run: |
-          brew update
-          brew tap homebrew/core
+          brew tap-new codefly-dev/ci
+          cp codefly.rb "$(brew --repository codefly-dev/ci)/Formula/codefly.rb"
 
       - name: Test Formula
         run: |
-          brew install --build-from-source --verbose ./codefly.rb
+          brew install --build-from-source --verbose codefly-dev/ci/codefly
 
       - name: Test Binary
         run: |
